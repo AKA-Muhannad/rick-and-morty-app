@@ -8,15 +8,16 @@ part 'characters_state.dart';
 class CharactersCubit extends Cubit<CharactersState> {
   // cubit will take data from reop
   final CharactersRepo charactersRepo;
-  late List<Character> characters;
+  late List<Character> characters =[];
 
   CharactersCubit(this.charactersRepo) : super(CharactersInitial());
 
   List<Character> getAllCharacters() {
     charactersRepo.getAllCharacters().then((characters) {
-      emit(CharactersLoaded(character: characters));
+      emit(CharactersLoaded(characters: characters));
+      this.characters = characters;
     });
 
     return characters;
-  }
+  } 
 }

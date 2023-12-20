@@ -6,9 +6,9 @@ sealed class CharactersState {}
 final class CharactersInitial extends CharactersState {}
 
 class CharactersLoaded extends CharactersState{
-  final List<Character> character;
+  final List<Character> characters;
 
-  CharactersLoaded({required this.character});
+  CharactersLoaded({required this.characters});
 }
 
 class CharactersErrorCase extends CharactersState {
