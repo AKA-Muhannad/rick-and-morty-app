@@ -79,7 +79,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
         appBar: AppBar(
           backgroundColor: RickAndMortyColors.yellow,
           title: Text(
-            'Characters',
+            'Rick and Morty | Characters',
             style: TextStyle(color: RickAndMortyColors.brown),
           ),
         ),

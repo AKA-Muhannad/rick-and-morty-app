@@ -4,29 +4,37 @@ class Character {
   late String charStatus;
   late String charSpecies;
   late String charGender;
-  // late Map<String, String> charOrigin;
-  Origin? origin;
+  late Map<String, String> charOrigin;
+  // Origin? origin;
   late String charImg;
 
-  Character.fromJson(Map<String, dynamic> json) {
-    charId = json["id"];
-    charName = json["name"];
-    charStatus = json["status"];
-    charSpecies = json["species"];
-    charGender = json["gender"];
-    // charOrigin = json["origin"];
-    origin =
-        json['origin'] != null ? new Origin.fromJson(json['origin']) : null;
-    charImg = json["image"];
+  Character({
+    required this.charId,
+    required this.charName,
+    required this.charStatus,
+    required this.charSpecies,
+    required this.charGender,
+    required this.charOrigin,
+    required this.charImg,
+  });
+
+  factory Character.fromJson(Map<dynamic, dynamic> json) {
+    return Character(
+        charId: json['id'],
+        charName: json['name'],
+        charStatus: json['status'],
+        charSpecies: json['species'],
+        charGender: json['gender'],
+        charOrigin: Map<String, String>.from(json['origin']),
+        charImg: json['image']);
   }
 }
 
-class Origin {
-  String? name;
-  String? url;
-  Origin({this.name, this.url});
-  Origin.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    url = json['url'];
-  }
-}
+// class Origin {
+//   String? name;
+//   String? url;
+//   Origin({this.name, this.url});
+//   Origin.fromJson(Map<String, dynamic> json) {
+//     name = json['name'];
+//     url = json['url'];
+//   }
